@@ -33,13 +33,13 @@ carries were priced at its bars' o and o_depth. ``state.depth_at(symbol)`` is th
 the best guess at the next open's, and ``state.impact_bps(symbol, amount)`` what a trade worth amount
 would pay there; max_slippage_bps bounds the move from the latest close, the slippage and the impact
 together. A sell's proceeds never fund a buy of the same reply; the last bar's orders are rejected
-(after_end) and every position is flattened at the end, at its latest close against that close's
-depth. A contest may open with a warm-up (``hello["warmup_bars"]``): its first batches are the bars
+(after_end) and every position is flattened at the end, at its latest close against that close's depth.
+A contest may open with a warm-up (``hello["warmup_bars"]``): its first batches are the bars
 before the scored window, to build history from, and every order decided on one is rejected (warmup);
 ``state.warming_up`` says so, ``state.warmup_bars`` counts them (0 without one), and seq
 ``state.warmup_bars`` is the first batch you can trade on. stdout carries replies only (diagnostics:
-stderr). Every entry runs twice and the two action logs must match byte for byte: never read the
-clock, the environment or an unseeded random; seed ``random.Random`` from ``int(state.hello["seed"])``.
+stderr). Every entry runs twice and the two action logs must match byte for byte: never read the clock,
+the environment or an unseeded random; seed ``random.Random`` from ``int(state.hello["seed"])``.
 """
 
 import json
